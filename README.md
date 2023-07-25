@@ -1,1 +1,2 @@
-# croissant-therapy
+# Croissant Therapy
+## Portfolio Project - Python
