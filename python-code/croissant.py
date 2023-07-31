@@ -19,9 +19,20 @@ NEMESIS_savoury_croissants = {'Smoked Ham Croissant': '7.90', 'Mortadella Croiss
 NEMESIS_adventurous_croissants = {'Coconut White Chocolate': '6.75', 'Raspberry & Rose Cruffin': '7.50'}
 
 #--------------------------------------------------------Program Input--------------------------------------------------
-user_name = input("What is your name? ")
+
+#NAME INPUT LOGIC
+#Name logic - this will check if user has input their name and return with an error message if they did not enter their name.
+
+name_logic = False
+while not name_logic:
+    user_name = input("What is your name? ")
+    if user_name != "":
+        name_logic = True
+    else:
+        print("Please enter your name! ")
 
 #BAKERY INPUT LOGIC-------------------------------------------------------------------------------------------
+#Bakery logic - asks the user which bakery they would like to go to and checks whether they enter valid bakery choices and will return error message if anything other than those 3 bakery choices are chosen.
 
 bakery_prompt = ""
 while True:
@@ -36,6 +47,7 @@ while True:
 bakery_input = bakery_prompt
 
 #TYPE INPUT LOGIC---------------------------------------------------------------------------------------------
+#Type logic - this will ask the user what type of croissant they would like. Checks if user's input matches either safe, sweet, savoury or adventurous choices. Will return error message if anything other than those 4 choices is chosen.
 
 type_prompt = ""
 while True:
@@ -50,6 +62,7 @@ while True:
 type_input = type_prompt 
 
 #BUDGET INPUT LOGIC--------------------------------------------------------------------------------------------
+#Budget logic - Asks the user what their budget is for that day. Checks if budget is greater than 0 and if it is an integer.
 
 budget_logic = False
 while not budget_logic:
@@ -72,6 +85,8 @@ budget = acceptable_budget_input
 #-----------------------------------------------PROGRAM LOGIC--------------------------------------------------------------
 
 #BEACOUP BAKERY CROISSANTS
+#If user input beacoup as their chosen bakery, the program will then check which type of croissant user want!
+
 while bakery == "beacoup":
 
     #SAFE OPTIONS
@@ -140,6 +155,8 @@ while bakery == "beacoup":
     break
 
 #ANGUST BAKERY CROISSANTS------------------------------------------------------------------------
+#If user input angus t as their chosen bakery, the program will then check which type of croissant user want!
+
 while bakery == "angus t":
 
     #SAFE OPTIONS
@@ -208,6 +225,8 @@ while bakery == "angus t":
     break
 
 #NEMESIS BAKERY CROISSANTS------------------------------------------------------------------------
+#If user input nemesis as their chosen bakery, the program will then check which type of croissant user want!
+
 while bakery == "nemesis":
 
     #SAFE OPTIONS
