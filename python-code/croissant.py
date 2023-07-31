@@ -24,56 +24,58 @@ user_name = input("What is your name? ")
 #BAKERY INPUT LOGIC-------------------------------------------------------------------------------------------
 
 bakery_prompt = ""
-def bakery_choice(bakery_prompt):
+while True:
+    bakery_prompt = input("Hello " + str(user_name) + "! Are we going to Beacoup, Angus T or Nemesis cafe today? ")
 
-    while True:
-        bakery_prompt = input("Hello " + str(user_name) + "! Are we going to Beacoup, Angus T or Nemesis cafe today? ")
+    if bakery_prompt.lower() == "nemesis" or bakery_prompt.lower() == "beacoup" or bakery_prompt.lower() == "angus t":
+        break
 
-        if bakery_prompt.lower() == "nemesis":
-            break
+    else:
+        print("Please choose a valid bakery!")
 
-        if bakery_prompt.lower() == "beacoup":
-            break
-    
-        if bakery_prompt.lower() == "angus t":
-            break
-
-        else:
-            print("Please choose a valid bakery! ")
-
-bakery_input = bakery_choice(bakery_prompt) 
+bakery_input = bakery_prompt
 
 #TYPE INPUT LOGIC---------------------------------------------------------------------------------------------
-type_input = input("Are you feeling Safe, Sweet, Savoury or Adventurous today? ")
 
-if type_input == "Safe" or "Sweet" or "Savoury" or "Adventurous":
-    pass
-elif type_input != "Safe" or "Sweet" or "Savoury" or "Adventurous":
-    print("Please input valid croissant type.")
-    type_input = input("Are you feeling Safe, Sweet, Savoury or Adventurous today? ")
+type_prompt = ""
+while True:
+    type_prompt = input("Are you feeling Safe, Sweet, Savoury or Adventurous today? ")
+
+    if type_prompt.lower() == "safe" or type_prompt.lower() == "sweet" or type_prompt.lower() == "savoury" or type_prompt.lower() == "adventurous":
+        break
+
+    else:
+        print("Please choose a valid croissant type! ")
+
+type_input = type_prompt 
 
 #BUDGET INPUT LOGIC--------------------------------------------------------------------------------------------
-budget_input = input("Final question. What is your budget today?" )
 
-if budget_input == None:
-    print("Please input your budget!")
-    budget_input = input("Final question. What is your budget today?" )
-else:
-    pass
+budget_logic = False
+while not budget_logic:
+    try:
+        budget_input = int(input("Final question. What is your budget today?" ))
+        if budget_input > 0:
+            budget_logic = True
+            acceptable_budget_input = str(budget_input)
+        else:
+            print("Budget needs to be more than 0!")
+    except ValueError:
+        print ("Please input a valid budget!")
 
 #Program Variables-------------------------------------------------------------------------------------------------
 
-bakery = bakery_input
-budget = budget_input
-type = type_input
+bakery = bakery_input.lower()
+type = type_input.lower()
+budget = acceptable_budget_input
 
 #-----------------------------------------------PROGRAM LOGIC--------------------------------------------------------------
 
 #BEACOUP BAKERY CROISSANTS
-while bakery == "Beacoup":
+while bakery == "beacoup":
 
     #SAFE OPTIONS
-    if type == "Safe":
+    if type == "safe":
 
         #Get a random croissant choice
         SAFE_affordable_croissants = dict(BEACOUP_safe_croissants.items())
@@ -89,7 +91,7 @@ while bakery == "Beacoup":
             break
     
     #SWEET OPTIONS
-    elif type == "Sweet":
+    elif type == "sweet":
         
         #Get a random croissant choice
         SWEET_affordable_croissants = dict(BEACOUP_sweet_croissants.items())
@@ -105,7 +107,7 @@ while bakery == "Beacoup":
             break
     
     #SAVOURY OPTIONS
-    elif type == "Savoury":
+    elif type == "savoury":
 
         #Get a random croissant choice
         SAVOURY_affordable_croissants = dict(BEACOUP_savoury_croissants.items())
@@ -121,7 +123,7 @@ while bakery == "Beacoup":
             break
 
     #ADVENTUROUS OPTIONS
-    elif type == "Adventurous":
+    elif type == "adventurous":
 
         #Get a random croissant choice
         ADVENTUROUS_affordable_croissants = dict(BEACOUP_adventurous_croissants.items())
@@ -138,10 +140,10 @@ while bakery == "Beacoup":
     break
 
 #ANGUST BAKERY CROISSANTS------------------------------------------------------------------------
-while bakery == "Angus T":
+while bakery == "angus t":
 
     #SAFE OPTIONS
-    if type == "Safe":
+    if type == "safe":
         
         #Get a random croissant choice
         SAFE_affordable_croissants = dict(ANGUST_safe_croissants.items())
@@ -157,7 +159,7 @@ while bakery == "Angus T":
             break
     
     #SWEET OPTIONS
-    elif type == "Sweet":
+    elif type == "sweet":
        
        #Get a random croissant choice
         SWEET_affordable_croissants = dict(ANGUST_sweet_croissants.items())
@@ -173,7 +175,7 @@ while bakery == "Angus T":
             break
     
     #SAVOURY OPTIONS
-    elif type == "Savoury":
+    elif type == "savoury":
 
          #Get a random croissant choice
         SAVOURY_affordable_croissants = dict(ANGUST_savoury_croissants.items())
@@ -191,7 +193,7 @@ while bakery == "Angus T":
 
     #ADVENTUROUS OPTIONS
      #Get a random croissant choice
-    elif type == "Adventurous":
+    elif type == "adventurous":
         ADVENTUROUS_affordable_croissants = dict(ANGUST_adventurous_croissants.items())
         todays_ADVENTUROUS_choice = random.choice(list(ADVENTUROUS_affordable_croissants.keys()))
     
@@ -206,10 +208,10 @@ while bakery == "Angus T":
     break
 
 #NEMESIS BAKERY CROISSANTS------------------------------------------------------------------------
-while bakery == "Nemesis":
+while bakery == "nemesis":
 
     #SAFE OPTIONS
-    if type == "Safe":
+    if type == "safe":
         
         #Get a random croissant choice
         SAFE_affordable_croissants = dict(NEMESIS_safe_croissants.items())
@@ -225,7 +227,7 @@ while bakery == "Nemesis":
             break
     
     #SWEET OPTIONS
-    elif type == "Sweet":
+    elif type == "sweet":
        
        #Get a random croissant choice
         SWEET_affordable_croissants = dict(NEMESIS_sweet_croissants.items())
@@ -241,7 +243,7 @@ while bakery == "Nemesis":
             break
     
     #SAVOURY OPTIONS
-    elif type == "Savoury":
+    elif type == "savoury":
 
          #Get a random croissant choice
         SAVOURY_affordable_croissants = dict(NEMESIS_savoury_croissants.items())
@@ -259,7 +261,7 @@ while bakery == "Nemesis":
 
     #ADVENTUROUS OPTIONS
      #Get a random croissant choice
-    elif type == "Adventurous":
+    elif type == "adventurous":
         ADVENTUROUS_affordable_croissants = dict(NEMESIS_adventurous_croissants.items())
         todays_ADVENTUROUS_choice = random.choice(list(ADVENTUROUS_affordable_croissants.keys()))
     
